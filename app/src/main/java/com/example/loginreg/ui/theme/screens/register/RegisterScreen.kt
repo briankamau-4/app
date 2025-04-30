@@ -57,13 +57,13 @@ fun register(navController: NavHostController){
         Text(
             text = "Create an account"
         )
-        var fullname by remember{ mutableStateOf("") }
+        var firstname by remember{ mutableStateOf("") }
+        var lastname by remember{ mutableStateOf("") }
         var email by remember{ mutableStateOf("") }
         var password by remember{ mutableStateOf("") }
-        var conf by remember{ mutableStateOf("") }
         OutlinedTextField(
-            value= fullname,
-            onValueChange = { fullname = it},
+            value= firstname,
+            onValueChange = { firstname = it},
             label = {Text("Fullname")},
             singleLine = true,
             modifier = Modifier
@@ -73,6 +73,23 @@ fun register(navController: NavHostController){
                 Icon(
                     imageVector = Icons.Default.Person,
                     contentDescription = "Name"
+                )
+            }
+
+        )
+        Spacer(modifier = Modifier.height(20.dp))
+        OutlinedTextField(
+            value= lastname,
+            onValueChange = { lastname = it},
+            label = {Text("conf")},
+            singleLine = true,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 20.dp, end = 20.dp),
+            leadingIcon = {
+                Icon(
+                    imageVector = Icons.Default.Email,
+                    contentDescription = "Email"
                 )
             }
 
@@ -97,7 +114,7 @@ fun register(navController: NavHostController){
         Spacer(modifier = Modifier.height(20.dp))
         OutlinedTextField(
             value= password,
-            onValueChange = { fullname = it},
+            onValueChange = { password = it},
             label = {Text("Password")},
             singleLine = true,
             modifier = Modifier
@@ -111,23 +128,7 @@ fun register(navController: NavHostController){
             }
 
         )
-        Spacer(modifier = Modifier.height(20.dp))
-        OutlinedTextField(
-            value= conf,
-            onValueChange = { conf = it},
-            label = {Text("conf")},
-            singleLine = true,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(start = 20.dp, end = 20.dp),
-            leadingIcon = {
-                Icon(
-                    imageVector = Icons.Default.Email,
-                    contentDescription = "Email"
-                )
-            }
 
-        )
         Spacer(modifier = Modifier.height(20.dp))
     }
 }
